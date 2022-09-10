@@ -12,6 +12,10 @@ const options = {
 
 fetch('https://1000-most-common-words.p.rapidapi.com/words/spanish?words_limit=20', options)
 	.then(response => response.json())
+    .finally(()=>{
+        let loadingElement = document.querySelector(".loading")
+        loadingElement.style.display="none"
+    })
 	.then(response => {
         console.log(response)
         let world = response[0];
